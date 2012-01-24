@@ -1,0 +1,276 @@
+<!-- include('header.php');-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="apple-touch-icon" href="images/launcher-icon.png" />
+		<link rel="apple-touch-icon-precomposed" href="images/launcher-icon.png" />
+
+		<title>Triptu</title>
+
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" href="css/triptu.css" />
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="./js/phonegap.js"></script>
+		<script type="application/javascript" src="js/iscroll.js"></script>
+		<script type="text/javascript">
+			var paths = document.location.href.split('/');
+			if (paths[paths.length - 1] == 'triptu.html' && 'standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi).test(navigator.platform) && (/Safari/i).test(navigator.appVersion)) {
+				document.write('<link rel="stylesheet" href="css\/add2home.css">');
+				document.write('<script type="application\/javascript" src="js\/add2home.js" charset="utf-8"><\/s' + 'cript>');
+			}
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<button id="back" type="reset" class="backButton floatLeft">BACK</button>
+			<img src="images/header-logo.png" class="floatRight" />
+			<h1></h1>
+			<div class="clear"></div>
+		</div>
+		<div id="body">
+<!-- include('resorts.php');-->
+			<div id="pageResorts" class="page">
+				<div class="wrapper">
+					<div class="scroller">
+						<ul id="resorts">
+							<li class="listDivider">Select resort to get exclusive deals</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+<!-- include('deals.php');-->
+			<!-- PAGE DEALS -->
+			<div id="pageDeals" class="page">
+				<div class="wrapper">
+					<div class="scroller">
+						<ul id="deals"></ul>
+					</div>
+				</div>
+				<div class="categories">
+					<p class="browseCategories">Select category for more deals:</p>
+				<div class="barCategories">
+					<ul id="categories"></ul>
+				</div>
+			</div>
+		</div>
+<!-- END PAGE DEALS -->
+		
+<!-- include('deal.php');-->
+		<!-- PAGE DEAL -->
+		<div id="pageDeal" class="page">
+			<div class="wrapper">
+				<div class="scroller">
+					<div class="dealDetail">
+						<div id="dealItem">
+							<img id="dealDetailImage" src="" />
+							<span id="dealDetailName"></span><br />
+							<span id="dealDetailSupplierName"></span><br />
+							<span id="dealDetailDiscount"></span>
+							<div class="clear"></div>
+						</div>
+						<div>
+							<button id="btnGetVoucher" class="pinkButton loginButton" title="Payment">Get voucher</button>
+						</div>
+						<div id="originalPrice">
+							<strong>Original price:</strong>
+							<span></span>
+						</div>
+						<div id="voucherPrice">
+							<strong>Voucher price:</strong>
+							<span></span>
+						</div>
+						<div id="discountPrice">
+							<strong>Discount price:</strong>
+							<span></span>
+						</div>
+						<div id="discountRate">
+							<strong>Discount rate:</strong>
+							<span></span>
+						</div>
+						<div id="dealDetailDescription" class="description"></div>
+						<div class="centerTxt">
+							<img id="dealDetailSupplierPhoto1" class="dealSupplierPhoto" src="" /><br />
+							<img id="dealDetailSupplierPhoto2" class="dealSupplierPhoto" src="" />
+						</div>
+						<div id="dealDetailSupplierDescription"></div>
+						<p id="dealDetailSupplierLocationAddress">
+							<strong>Address</strong>
+							<span></span>
+						</p>
+						<p id="dealDetailSupplierPhone">
+							<strong>Phone</strong>
+							<span></span>
+						</p>
+						<p id="dealDetailSupplierEmail">
+							<strong>Email</strong>
+							<span></span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- END PAGE DEAL -->
+
+<!-- include('payment.php');-->
+	<!-- DIALOG PAYMENT -->
+		<div id="pagePayment" class="pagePayment dialog">
+			<form id="paymentForm" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_xclick"/>
+				<input type="hidden" name="business" value="alexim_1323356413_biz@btinternet.com"/>
+				<input type="hidden" name="item_name" value="test"/>
+				<input type="hidden" id="item_number" name="item_number" value="2"/>
+				<input type="hidden" id="amount" name="amount" value="10.00"/>
+				<input type="hidden" name="currency_code" value="EUR"/>
+				<input type="hidden" name="no_note" value="1"/>
+				<input type="hidden" name="no_shipping" value="0"/>
+				<input type="hidden" id="return" name="return" value="http://www.triptu.com/mobile/triptu.php#thanks">
+				<input type="hidden" name="lc" value="FR"/>
+				<input type="hidden" name="notify_url" value="http://triptu.com/back/InstantPaymentNotifications/process">
+				<input type="hidden" id="custom" name="custom" value="08443215" />
+				
+					<div class="paymentItem" id="paymentResort">
+						<a href="#">
+							<div class="floatPrice">
+								<div class="price">â‚¬<span id="resortPrice">10</span></div>
+								<button id="btnPaymentResort" class="paymentButton pinkButton">Buy</button>
+							</div>
+							<div class="content">
+								<div class="label">All <span id="resortName">[Tignes]</span> deals:</div>
+								<div class="sublabel">> Saving you â‚¬<span id="resortSave">[X]</span> during your stay</div>
+							</div>
+						</a>
+					</div>
+					<div class="clear"></div>
+					<div class="paymentItem" id="paymentCategory">
+						<a href="#">
+							<div class="floatPrice">
+								<div class="price">â‚¬<span id="categoryPrice">10</span></div>
+								<button id="btnPaymentCategory" class="paymentButton pinkButton">Buy</button>
+							</div>
+							<div class="content">
+								<div class="label"><span id="categoryName">[Restaurants]</span> deals only:</div>
+								<div class="sublabel">> Saving you â‚¬<span id="categorySave">[Y]</span> during your stay</div>
+							</div>
+						</a>
+					</div>
+					<div class="clear"></div>
+					<div class="paymentItem" id="paymentDeal">
+						<a href="#">
+							<div class="floatPrice">
+								<div class="price">â‚¬<span id="dealPrice">10</span></div>
+								<button id="btnPaymentDeal" class="paymentButton pinkButton">Buy</button>
+							</div>
+							<div class="content">
+								<span class="label">Just this voucher:</span>
+							</div>
+						</a>
+					</div>
+				</form>
+				<div class="clear"></div>
+				<form id="unlockCodePaymentForm" action="#" method="post">
+					<span class="label nopadding">Or enter promo code:</span>
+					<input id="unlockCodePayment" name="unlockCode" class="inputCode" title="Code" placeholder="Code" />
+					<button type="submit" class="paymentButton pinkButton">OK</button>
+				</form>
+			</div>
+<!-- END DIALOG PAYMENT -->
+
+<!-- include('my-triptu.php');-->
+		<!-- PAGE MY TRIPTU -->
+		<div id="pageMyTriptu" class="page">
+			<div class="wrapper">
+				<div class="scroller">
+					<ul>
+						<li class="listDivider">My Triptu</li>
+						<li class="listItem padded">
+							<a class="bold noDeco emphasis" href="mailto:contact@triptu.com?subject=Change my personal details">Change personal details</a>
+						</li>
+						<li class="listItem padded">
+							<a class="bold noDeco emphasis" href="mailto:contact@triptu.com?subject=Unsubscribe">Unsubscribe</a>
+						</li>
+						<li class="listItem padded">
+							<a id="unlockCodeLink" class="bold noDeco emphasis" href="#">Enter promo code</a>
+						</li>
+						<li class="listDivider">My paid vouchers</li>
+						<li><ul id="vouchers"></ul></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!-- END PAGE MY TRIPTU -->
+
+
+<!-- include('voucher.php');-->
+	<!-- PAGE VOUCHER -->
+	<div id="pageVoucher" class="page">
+		<p id="voucherPrerequired"><strong>Please flip phone to display this voucher</strong></p>
+		<div id="voucherLandscape" class="hidden">
+			<div class="wrapper">
+				<div class="scroller">
+					<h2 id="voucherDealDetailSupplierName"></h2>
+					<p id="voucherCode"></p>
+					<marquee>Please show this voucher to staff</marquee>
+					<div class="clear"></div>
+					<h2 id="voucherDealDetailName"></h2>
+					<p id="voucherDealDetailDescription" class="description"></p>
+				</div>
+			</div>
+		<p id="voucherClientName">Alexis M</p>
+		</div>
+	</div>
+<!-- END PAGE VOUCHER -->
+
+<!-- include('footer.php');-->
+</div>	<!-- close div id="body" -->
+		<div id="dialogMessage" class="dialog"></div>
+		<div id="dialogQuestion" class="dialog">
+			<h2>Warning! Voucher can only be used once</h2>
+			<h3>Are you sure to use it now ?</h3>
+		</div>
+		<div id="dialogCode" class="dialog">
+			Enter your promo code
+			<form id="unlockCodeForm" action="#" method="post">
+				<input id="unlockCode" name="unlockCode" class="inputCode" title="Code" placeholder="Code" />
+				<button type="submit" class="pinkButton okButton">OK</button>
+			</form>
+		</div>
+		<div id="dialogThanks" class="dialog">
+			<p id="dialogContent" />
+		<div class="centerTxt topSpace">
+			<button type="submit" class="pinkButton okButton">OK</button>
+		</div>
+	</div>
+		<div id="dialogThanksCode" class="dialog">
+			Your voucher(s) are now available. You can access them straight from the deal list.
+			<div class="centerTxt topSpace">
+				<button type="submit" class="pinkButton okButton">OK</button>
+			</div>
+		</div>
+		<div id="dialogProgress" class="dialog">
+			<img class="ajaxLoader" src="images/ajax-loader.gif" />
+			Please wait...
+		</div>
+		<div id="footer" class="darkBar">
+			<a href="#resorts" id="goResorts" class="pageLauncher noDeco" title="Resorts">Resorts</a>
+			<a href="#deals" id="goDeals" class="pageLauncher noDeco" title="Deals">Deals</a>
+			<a href="#myTriptu" id="goMyTriptu" class="pageLauncher noDeco" title="My Triptu">My Triptu</a>
+		</div>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-23549706-1']);
+			_gaq.push(['_setDomainName', 'triptu.com']);
+			_gaq.push(['_trackPageview']);
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+		<script type="text/javascript" src="js/triptu.js"></script>
+	</body>
+</html>

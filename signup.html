@@ -1,0 +1,98 @@
+<!-- <?php include('header.php'); ?>-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="apple-touch-icon" href="images/launcher-icon.png" />
+		<link rel="apple-touch-icon-precomposed" href="images/launcher-icon.png" />
+
+		<title>Triptu</title>
+
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" href="css/triptu.css" />
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+		<script type="application/javascript" src="js/iscroll.js"></script>
+		<script type="text/javascript">
+			var paths = document.location.href.split('/');
+			if (paths[paths.length - 1] == 'triptu.html' && 'standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi).test(navigator.platform) && (/Safari/i).test(navigator.appVersion)) {
+				document.write('<link rel="stylesheet" href="css\/add2home.css">');
+				document.write('<script type="application\/javascript" src="js\/add2home.js" charset="utf-8"><\/s' + 'cript>');
+			}
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<button id="back" type="reset" class="backButton floatLeft">BACK</button>
+			<img src="images/header-logo.png" class="floatRight" />
+			<h1></h1>
+			<div class="clear"></div>
+		</div>
+		<div id="body">
+			<img src="images/logo-large.png" class="topSpace loginLogo" />
+			<div id="sign">
+				<form id="signForm" class="bottomSpace" action="#" method="post">
+					<p><input id="newUserFirstname" type="text" class="first" name="newUser[firstname]" placeholder="First name" /></p>
+					<p><input id="newUserLastname" type="text" class="middle" name="newUser[lastname]" placeholder="Last name" /></p>
+					<p><input id="newUserEmail" type="text" class="middle" name="newUser[email]" placeholder="Email" /></p>
+					<p><input id="newUserPassword" type="password" class="middle" name="newUser[password]" placeholder="Password" /></p>
+					<p><input id="newUserConfPassword" type="password" class="last" name="newUser[confPassword]" placeholder="Password confirmation" /></p>
+					<p class="checkbox"><input id="newUserTos" name="newUser[tos]" type="checkbox" />I agree with triptu's <a href="www.triptu.com/tos">Terms of Service</a></p>
+					<p class="checkbox">Note: we NEVER share your email details with third parties - we hate spam as much as you do.</p>
+					<button type="reset" class="loginButton pinkButton" onclick="window.location.replace('login.html')">BACK</button>
+					<button type="submit" class="loginButton pinkButton">SIGN UP</button>
+				</form>
+			</div>
+			
+<!-- <?php include('footer.php'); ?>-->
+		</div>	<!-- close div id="body" -->
+		<div id="dialogMessage" class="dialog"></div>
+		<div id="dialogQuestion" class="dialog">
+			<h2>Warning! Voucher can only be used once</h2>
+			<h3>Are you sure to use it now ?</h3>
+		</div>
+		<div id="dialogCode" class="dialog">
+			Enter your promo code
+			<form id="unlockCodeForm" action="#" method="post">
+				<input id="unlockCode" name="unlockCode" class="inputCode" title="Code" placeholder="Code" />
+				<button type="submit" class="pinkButton okButton">OK</button>
+			</form>
+		</div>
+		<div id="dialogThanks" class="dialog">
+			<p id="dialogContent" />
+		<div class="centerTxt topSpace">
+			<button type="submit" class="pinkButton okButton">OK</button>
+		</div>
+	</div>
+		<div id="dialogThanksCode" class="dialog">
+			Your voucher(s) are now available. You can access them straight from the deal list.
+			<div class="centerTxt topSpace">
+				<button type="submit" class="pinkButton okButton">OK</button>
+			</div>
+		</div>
+		<div id="dialogProgress" class="dialog">
+			<img class="ajaxLoader" src="images/ajax-loader.gif" />
+			Please wait...
+		</div>
+		<div id="footer" class="darkBar">
+			<a href="#resorts" id="goResorts" class="pageLauncher noDeco" title="Resorts">Resorts</a>
+			<a href="#deals" id="goDeals" class="pageLauncher noDeco" title="Deals">Deals</a>
+			<a href="#myTriptu" id="goMyTriptu" class="pageLauncher noDeco" title="My Triptu">My Triptu</a>
+		</div>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-23549706-1']);
+			_gaq.push(['_setDomainName', 'triptu.com']);
+			_gaq.push(['_trackPageview']);
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+		<script type="text/javascript" src="js/triptu.js"></script>
+	</body>
+</html>
