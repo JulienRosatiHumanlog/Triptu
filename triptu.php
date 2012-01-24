@@ -1,9 +1,0 @@
-<?php
-include('header.php');
-include('resorts.php');
-include('deals.php');
-include('deal.php');
-include('payment.php');
-include('my-triptu.php');
-include('voucher.php');
-include('footer.php');
