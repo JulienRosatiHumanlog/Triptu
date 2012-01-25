@@ -1,6 +1,5 @@
-<!-- <?php include('header.php'); ?>-->
 <!DOCTYPE html>
-<html>
+<html class="loginBackground">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -9,9 +8,9 @@
 		<link rel="apple-touch-icon-precomposed" href="images/launcher-icon.png" />
 
 		<title>Triptu</title>
+		<link rel="stylesheet" type="text/css" href="./css/triptu.css" />
 
 		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" />
-		<link rel="stylesheet" href="./css/triptu.css" />
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
@@ -26,12 +25,12 @@
 		</script>
 	</head>
 	<body>
-		<div id="header">
+		<!--<div id="header">
 			<button id="back" type="reset" class="backButton floatLeft">BACK</button>
 			<img src="images/header-logo.png" class="floatRight" />
 			<h1></h1>
 			<div class="clear"></div>
-		</div>
+		</div>-->
 		<div id="body">
 			<a href="http://m.triptu.com"><img src="images/logo-large.png" class="topSpace bottomSpace loginLogo" /></a>
 			<div id="login">
@@ -60,10 +59,10 @@
 		</div>
 		<div id="dialogThanks" class="dialog">
 			<p id="dialogContent" />
-		<div class="centerTxt topSpace">
-			<button type="submit" class="pinkButton okButton">OK</button>
+			<div class="centerTxt topSpace">
+				<button type="submit" class="pinkButton okButton">OK</button>
+			</div>
 		</div>
-	</div>
 		<div id="dialogThanksCode" class="dialog">
 			Your voucher(s) are now available. You can access them straight from the deal list.
 			<div class="centerTxt topSpace">
